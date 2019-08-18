@@ -16,20 +16,20 @@ to generate the same person but with different hand gestures.
 GestureGAN for cross-view image tranlation task. Given an image and some novel semantic maps, GestureGAN is able
 to generate the same scene but with different viewpoints. -->
 
-# GestureGAN for Controllable Image-to-Image Translation
+# AsymmetricGAN for Image-to-Image Translation
 
 ## GestureGAN Framework
-![Framework](./imgs/gesturegan_framework.jpg)
+![Framework](./imgs/AsymmetricGAN_framework.jpg)
 
 ## Comparison with State-of-the-Art Image-to-Image Transaltion Methods
-![Framework Comparison](./imgs/comparison.jpg)
+![Framework Comparison](./imgs/framework_comparison.jpg)
 
-### [Conference paper](https://arxiv.org/abs/1808.04859) | [Project page (Conference paper)](http://disi.unitn.it/~hao.tang/project/GestureGAN.html) | [Slides](http://disi.unitn.it/~hao.tang/uploads/slides/GestureGAN_MM18.pptx) | [Poster](http://disi.unitn.it/~hao.tang/uploads/posters/GestureGAN_MM18.pdf)
+### [Conference paper](https://arxiv.org/abs/1901.04604) | [Project page (Conference paper)](http://disi.unitn.it/~hao.tang/project/G2GAN.html) | [Slides](http://disi.unitn.it/~hao.tang/uploads/slides/G2GAN_ACCV18.pptx) | [Poster](http://disi.unitn.it/~hao.tang/uploads/posters/G2GAN_ACCV18.pdf)
 
-GestureGAN for Hand Gesture-to-Gesture Translation in the Wild.<br>
-[Hao Tang](http://disi.unitn.it/~hao.tang/)<sup>1</sup>, [Wei Wang](https://weiwangtrento.github.io/)<sup>1,2</sup>, [Dan Xu](http://www.robots.ox.ac.uk/~danxu/)<sup>1,3</sup>, [Yan Yan](https://userweb.cs.txstate.edu/~y_y34/)<sup>4</sup> and [Nicu Sebe](http://disi.unitn.it/~sebe/)<sup>1</sup>. <br> 
-<sup>1</sup>University of Trento, Italy, <sup>2</sup>EPFL, Switzerland, <sup>3</sup>University of Oxford, UK, <sup>4</sup>Texas State University, USA.<br>
-In ACM MM 2018 (**Oral** & **Best Paper Candidate**).<br>
+Dual Generator Generative Adversarial Networks for Multi-Domain Image-to-Image Translation.<br>
+[Hao Tang](http://disi.unitn.it/~hao.tang/)<sup>1</sup>, [Dan Xu](http://www.robots.ox.ac.uk/~danxu/)<sup>2</sup>, [Wei Wang](https://weiwangtrento.github.io/)<sup>3</sup>, [Yan Yan](https://userweb.cs.txstate.edu/~y_y34/)<sup>4</sup> and [Nicu Sebe](http://disi.unitn.it/~sebe/)<sup>1</sup>. <br> 
+<sup>1</sup>University of Trento, Italy, <sup>2</sup>University of Oxford, UK, <sup>3</sup>EPFL, Switzerland, <sup>4</sup>Texas State University, USA.<br>
+In ACCV 2018 (**Oral**).<br>
 The repository offers the official implementation of our paper in PyTorch.
 
 ### [License](./LICENSE.md)
@@ -45,8 +45,8 @@ The code is released for academic research use only. For commercial use, please 
 
 Clone this repo.
 ```bash
-git clone https://github.com/Ha0Tang/GestureGAN
-cd GestureGAN/
+git clone https://github.com/Ha0Tang/AsymmetricGAN
+cd AsymmetricGAN/
 ```
 
 This code requires PyTorch 0.4.1 and python 3.6+. Please install dependencies by
@@ -87,13 +87,6 @@ cd datasets/
 matlab -nodesktop -nosplash -r "prepare_senz3d_data"
 ```
 
-**Preparing Dayton Dataset**. The dataset can be downloaded [here](https://github.com/lugiavn/gt-crossview). In particular, you will need to download dayton.zip. 
-Ground Truth semantic maps are not available for this datasets. We adopt [RefineNet](https://github.com/guosheng/refinenet) trained on CityScapes dataset for generating semantic maps and use them as training data in our experiments. Please cite their papers if you use this dataset.
-Train/Test splits for Dayton dataset can be downloaded from [here](https://github.com/Ha0Tang/SelectionGAN/tree/master/datasets/dayton_split).
-
-**Preparing CVUSA Dataset**. The dataset can be downloaded [here](https://drive.google.com/drive/folders/0BzvmHzyo_zCAX3I4VG1mWnhmcGc), which is from the [page](http://cs.uky.edu/~jacobs/datasets/cvusa/). After unzipping the dataset, prepare the training and testing data as discussed in [SelectionGAN](https://arxiv.org/abs/1904.06807). We also convert semantic maps to the color ones by using this [script](https://github.com/Ha0Tang/SelectionGAN/blob/master/scripts/convert_semantic_map_cvusa.m).
-Since there is no semantic maps for the aerial images on this dataset, we use black images as aerial semantic maps for placehold purposes.
-
 **Preparing Your Own Datasets**. Each training sample in the dataset will contain {Ix,Iy,Cx,Cy}, where Ix=image x, Iy=image y, Cx=Controllable structure of image x, and Cy=Controllable structure of image y.
 Of course, you can use GestureGAN for your own datasets and tasks, such landmark-guided facial experssion translation and keypoint-guided person image generation.
 
@@ -101,10 +94,10 @@ Of course, you can use GestureGAN for your own datasets and tasks, such landmark
 
 Once the dataset is ready. The result images can be generated using pretrained models.
 
-1. You can download a pretrained model (e.g. ntu_gesturegan_twocycle) with the following script:
+1. You can download a pretrained model (e.g. ntu_asymmetricgan) with the following script:
 
 ```
-bash ./scripts/download_gesturegan_model.sh ntu_gesturegan_twocycle
+bash ./scripts/download_gesturegan_model.sh ntu_asymmetricgan
 ```
 The pretrained model is saved at `./checkpoints/[type]_pretrained`. Check [here](https://github.com/Ha0Tang/GestureGAN/blob/master/scripts/download_gesturegan_model.sh) for all the available GestureGAN models.
 
