@@ -18,8 +18,11 @@ to generate the same scene but with different viewpoints. -->
 
 # AsymmetricGAN for Image-to-Image Translation
 
+## AsymmetricGAN Framework for Multi-Domain Image-to-Image Translation
+![UN_Framework](./imgs/AsymmetricGAN_unsupervised.jpg)
+
 ## AsymmetricGAN Framework for Hand Gesture-to-Gesture Translation
-![Framework](./imgs/AsymmetricGAN_framework.jpg)
+![SU_Framework](./imgs/AsymmetricGAN_supervised.jpg)
 
 ## Comparison with State-of-the-Art Image-to-Image Transaltion Methods
 ![Framework Comparison](./imgs/framework_comparison.jpg)
