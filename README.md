@@ -18,7 +18,7 @@ to generate the same scene but with different viewpoints. -->
 
 # AsymmetricGAN for Image-to-Image Translation
 
-## GestureGAN Framework
+## AsymmetricGAN Framework for Hand Gesture-to-Gesture Translation
 ![Framework](./imgs/AsymmetricGAN_framework.jpg)
 
 ## Comparison with State-of-the-Art Image-to-Image Transaltion Methods
