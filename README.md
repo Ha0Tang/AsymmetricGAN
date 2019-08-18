@@ -91,7 +91,7 @@ matlab -nodesktop -nosplash -r "prepare_senz3d_data"
 ```
 
 **Preparing Your Own Datasets**. Each training sample in the dataset will contain {Ix,Iy,Cx,Cy}, where Ix=image x, Iy=image y, Cx=Controllable structure of image x, and Cy=Controllable structure of image y.
-Of course, you can use GestureGAN for your own datasets and tasks, such landmark-guided facial experssion translation and keypoint-guided person image generation.
+Of course, you can use AsymmetricGAN for your own datasets and tasks.
 
 ## Generating Images Using Pretrained Model
 
