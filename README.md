@@ -181,121 +181,6 @@ python train.py --dataroot ./datasets/senz3d \
 	--niter_decay 10
 ```
 
-For CVUSA dataset:
-```bash
-export CUDA_VISIBLE_DEVICES=0;
-python train.py --dataroot ./dataset/cvusa \
-	--name cvusa_gesturegan_onecycle \
-	--model gesturegan_onecycle \
-	--which_model_netG resnet_9blocks \
-	--which_direction AtoB \
-	--dataset_mode aligned \
-	--norm instance \
-	--gpu_ids 0 \
-	--batchSize 4 \
-	--loadSize 286 \
-	--fineSize 256 \
-	--no_flip \
-	--cyc_L1 0.1 \
-	--lambda_identity 100 \
-	--lambda_feat 100 \
-	--display_id 0 \
-	--niter 15 \
-	--niter_decay 15
-```
-
-For Dayton (a2g direction, 256) dataset:
-```bash
-export CUDA_VISIBLE_DEVICES=0;
-python train.py --dataroot ./datasets/dayton_a2g \
-	--name dayton_a2g_gesturegan_onecycle \
-	--model gesturegan_onecycle \
-	--which_model_netG resnet_9blocks \
-	--which_direction AtoB \
-	--dataset_mode aligned \
-	--norm instance \
-	--gpu_ids 0 \
-	--batchSize 4 \
-	--loadSize 286 \
-	--fineSize 256 \
-	--no_flip \
-	--cyc_L1 0.1 \
-	--lambda_identity 100 \
-	--lambda_feat 100 \
-	--display_id 0 \
-	--niter 20 \
-	--niter_decay 15
-```
-
-For Dayton (g2a direction, 256) dataset:
-```bash
-export CUDA_VISIBLE_DEVICES=1;
-python train.py --dataroot ./datasets/dayton_g2a \
-	--name dayton_g2a_gesturegan_onecycle \
-	--model gesturegan_onecycle \
-	--which_model_netG resnet_9blocks \
-	--which_direction AtoB \
-	--dataset_mode aligned \
-	--norm instance \
-	--gpu_ids 0 \
-	--batchSize 4 \
-	--loadSize 286 \
-	--fineSize 256 \
-	--no_flip \
-	--cyc_L1 0.1 \
-	--lambda_identity 100 \
-	--lambda_feat 100 \
-	--display_id 0 \
-	--niter 20 \
-	--niter_decay 15
-```
-
-For Dayton (a2g direction, 64) dataset:
-```bash
-export CUDA_VISIBLE_DEVICES=0;
-python train.py --dataroot ./datasets/dayton_a2g \
-	--name dayton_a2g_64_gesturegan_onecycle \
-	--model gesturegan_onecycle \
-	--which_model_netG resnet_9blocks \
-	--which_direction AtoB \
-	--dataset_mode aligned \
-	--norm instance \
-	--gpu_ids 0 \
-	--batchSize 16 \
-	--loadSize 72 \
-	--fineSize 64 \
-	--no_flip \
-	--cyc_L1 0.1 \
-	--lambda_identity 100 \
-	--lambda_feat 100 \
-	--display_id 0 \
-	--niter 50 \
-	--niter_decay 50
-```
-
-For Dayton (g2a direction, 64) dataset:
-```bash
-export CUDA_VISIBLE_DEVICES=1;
-python train.py --dataroot ./datasets/dayton_g2a \
-	--name dayton_g2a_64_gesturegan_onecycle \
-	--model gesturegan_onecycle \
-	--which_model_netG resnet_9blocks \
-	--which_direction AtoB \
-	--dataset_mode aligned \
-	--norm instance \
-	--gpu_ids 0 \
-	--batchSize 16 \
-	--loadSize 72 \
-	--fineSize 64 \
-	--no_flip \
-	--cyc_L1 0.1 \
-	--lambda_identity 100 \
-	--lambda_feat 100 \
-	--display_id 0 \
-	--niter 50 \
-	--niter_decay 50
-```
-
 There are many options you can specify. Please use `python train.py --help`. The specified options are printed to the console. To specify the number of GPUs to utilize, use `export CUDA_VISIBLE_DEVICES=[GPU_ID]`. Note that train `gesturegan_onecycle` only needs one GPU, while train `gesturegan_twocycle` needs two GPUs.
 
 To view training results and loss plots on local computers, set `--display_id` to a non-zero value and run `python -m visdom.server` on a new terminal and click the URL [http://localhost:8097](http://localhost:8097/).
@@ -341,92 +226,12 @@ python test.py --dataroot ./datasets/senz3d \
 	--no_flip
 ```
 
-For CVUSA dataset:
-```bash
-python test.py --dataroot ./datasets/cvusa \
-	--name cvusa_gesturegan_onecycle \
-	--model gesturegan_onecycle \
-	--which_model_netG resnet_9blocks \
-	--which_direction AtoB \
-	--dataset_mode aligned \
-	--norm instance \
-	--gpu_ids 0 \
-	--batchSize 4 \
-	--loadSize 286 \
-	--fineSize 256 \
-	--no_flip
-```
-
-For Dayton (a2g direction, 256) dataset:
-```bash
-python test.py --dataroot ./datasets/dayton_a2g \
-	--name dayton_a2g_gesturegan_onecycle \
-	--model gesturegan_onecycle \
-	--which_model_netG resnet_9blocks \
-	--which_direction AtoB \
-	--dataset_mode aligned \
-	--norm instance \
-	--gpu_ids 0 \
-	--batchSize 4 \
-	--loadSize 286 \
-	--fineSize 256 \
-	--no_flip
-```
-
-For Dayton (g2a direction, 256) dataset:
-```bash
-python test.py --dataroot ./datasets/dayton_g2a \
-	--name dayton_g2a_gesturegan_onecycle \
-	--model gesturegan_onecycle \ 
-	--which_model_netG resnet_9blocks \
-	--which_direction AtoB \
-	--dataset_mode aligned \
-	--norm instance \
-	--gpu_ids 0 \
-	--batchSize 4 \
-	--loadSize 286 \
-	--fineSize 256 \
-	--no_flip
-```
-
-For Dayton (a2g direction, 64) dataset:
-```bash
-python test.py --dataroot ./datasets/dayton_a2g \
-	--name dayton_g2a_64_gesturegan_onecycle \
-	--model gesturegan_onecycle \
-	--which_model_netG resnet_9blocks \
-	--which_direction AtoB \
-	--dataset_mode aligned \
-	--norm instance \
-	--gpu_ids 0 \
-	--batchSize 16 \
-	--loadSize 72 \
-	--fineSize 64 \
-	--no_flip
-```
-
-For Dayton (g2a direction, 64) dataset:
-```bash
-python test.py --dataroot ./datasets/dayton_g2a \
-	--name dayton_g2a_64_gesturegan_onecycle \
-	--model gesturegan_onecycle \
-	--which_model_netG resnet_9blocks \
-	--which_direction AtoB \
-	--dataset_mode aligned \
-	--norm instance \
-	--gpu_ids 0 \
-	--batchSize 16 \
-	--loadSize 72 \
-	--fineSize 64 \
-	--no_flip
-```
-
 Use `--how_many` to specify the maximum number of images to generate. By default, it loads the latest checkpoint. It can be changed using `--which_epoch`.
 
 ## Code Structure
 
 - `train.py`, `test.py`: the entry point for training and testing.
-- `models/gesturegan_onecycle_model.py`, `models/gesturegan_twocycle_model.py`: creates the networks, and compute the losses.
+- `models/asymmetricgan_model.py`: creates the networks, and compute the losses.
 - `models/networks/`: defines the architecture of all models for GestureGAN.
 - `options/`: creates option lists using `argparse` package.
 - `data/`: defines the class for loading images and controllable structures.
@@ -435,51 +240,28 @@ Use `--how_many` to specify the maximum number of images to generate. By default
 ## Evaluation Code
 
 We use several metrics to evaluate the quality of the generated images:
-
-- Hand gesture-to-gesture translation: [Inception Score (IS)](https://github.com/openai/improved-gan) or [Here](https://github.com/Ha0Tang/GestureGAN/tree/master/scripts/evaluation/IS) **|** [Fréchet Inception Distance (FID)](https://github.com/bioinf-jku/TTUR) **|** [PSNR](https://github.com/Ha0Tang/GestureGAN/blob/master/scripts/evaluation/compute_psnr.lua), need install `Lua` **|** [Fréchet ResNet Distance (FRD)](https://github.com/Ha0Tang/GestureGAN/tree/master/scripts/evaluation/FRD), need install `MATLAB 2016+`
-- Cross-view image translation: [Inception Score (IS)](https://github.com/Ha0Tang/SelectionGAN/blob/master/scripts/evaluation/compute_topK_KL.py), need install `python 2.7` **|** [Accuracy](https://github.com/Ha0Tang/SelectionGAN/blob/master/scripts/evaluation/compute_accuracies.py), need install `python 2.7` **|** [KL score](https://github.com/Ha0Tang/SelectionGAN/blob/master/scripts/evaluation/KL_model_data.py), need install `python 2.7` **|** 
-[SSIM, PSNR, SD](https://github.com/Ha0Tang/SelectionGAN/blob/master/scripts/evaluation/compute_ssim_psnr_sharpness.lua), need install `Lua` **|** [LPIPS](https://github.com/richzhang/PerceptualSimilarity)
+- [Fréchet Inception Distance (FID)](https://github.com/bioinf-jku/TTUR) 
+- [PSNR](https://github.com/Ha0Tang/GestureGAN/blob/master/scripts/evaluation/compute_psnr.lua), need install `Lua` 
+- [Fréchet ResNet Distance (FRD)](https://github.com/Ha0Tang/GestureGAN/tree/master/scripts/evaluation/FRD), need install `MATLAB 2016+`
 
 ## Citation
 If you use this code for your research, please cite our papers.
 ```
-@inproceedings{tang2018gesturegan,
-  title={GestureGAN for Hand Gesture-to-Gesture Translation in the Wild},
-  author={Tang, Hao and Wang, Wei and Xu, Dan and Yan, Yan and Sebe, Nicu},
-  booktitle={ACM MM},
+@inproceedings{tang2018dual,
+  title={Dual Generator Generative Adversarial Networks for Multi-Domain Image-to-Image Translation},
+  author={Tang, Hao and Xu, Dan and Wang, Wei and Yan, Yan and Sebe, Nicu},
+  booktitle={ACCV},
   year={2018}
 }
 ```
 
 ## Acknowledgments
-This source code is inspired by [Pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix). We want to thank the NVIDIA Corporation for the donation of the TITAN Xp GPUs used in this work.
+This source code is inspired by [Pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix) and [GestureGAN](https://github.com/Ha0Tang/GestureGAN).
 
-## Related Projects (Controllable Image-to-Image Translation)
+## Related Projects
 
-### Keypoint/Skeleton Guided Person/Gesture Image Generation
-Person
-- [Dense Intrinsic Appearance Flow for Human Pose Transfer (CVPR 2019, PyTorch)](https://github.com/ly015/intrinsic_flow)
-- [Progressive Pose Attention for Person Image Generation (CVPR 2019, PyTorch)](https://github.com/tengteng95/Pose-Transfer)
-- [Unsupervised Person Image Generation with Semantic Parsing Transformation (CVPR 2019, PyTorch)](https://github.com/SijieSong/person_generation_spt)
-- [Pose-Normalized Image Generation for Person Re-identification (ECCV 2018, PyTorch)](https://github.com/naiq/PN_GAN)
-- [Everybody Dance Now (ECCVW 2018, PyTorch)](https://github.com/nyoki-mtl/pytorch-EverybodyDanceNow)
-- [FD-GAN: Pose-guided Feature Distilling GAN for Robust Person Re-identification (NIPS 2018, PyTorch)](https://github.com/yxgeee/FD-GAN)
-- [Disentangled Person Image Generation (CVPR 2018, Tensorflow)](https://github.com/charliememory/Disentangled-Person-Image-Generation)
-- [Deformable GANs for Pose-Based Human Image Generation (CVPR 2018, Tensorflow)](https://github.com/AliaksandrSiarohin/pose-gan)
-- [Pose Guided Person Image Generation (NIPS 2017, Tensorflow)](https://github.com/charliememory/Pose-Guided-Person-Image-Generation)
-
-Gesture
-- [Gesture-to-Gesture Translation in the Wild via Category-Independent Conditional Maps (ACM MM 2019, PyTorch)](https://github.com/yhlleo/TriangleGAN)
-
-### Label/Landmark Guided Facial Image Generation
-- [Few-Shot Adversarial Learning of Realistic Neural Talking Head Models (PyTorch)](https://github.com/grey-eye/talking-heads)
-- [GANimation: Anatomically-aware Facial Animation from a Single Image (ECCV 2018, PyTorch)](https://github.com/albertpumarola/GANimation)
-- [StarGAN: Unified Generative Adversarial Networks for Multi-Domain Image-to-Image Translation (CVPR 2018, PyTorch)](https://github.com/yunjey/stargan)
-
-### Semantic Map Guided Cross-View Image Translation
-- [Multi-Channel Attention Selection GAN with Cascaded Semantic Guidance for Cross-View Image Translation (CVPR 2019, PyTorch)](https://github.com/Ha0Tang/SelectionGAN)
-- [Cross-View Image Synthesis using Conditional GANs (CVPR 2018, Torch)](https://github.com/kregmi/cross-view-image-synthesis)
-- [Predicting Ground-Level Scene Layout from Aerial Imagery (CVPR 2017, Tensorflow)](https://github.com/viibridges/crossnet)
+- [StarGAN](https://github.com/yunjey/stargan)
+- [GestureGAN](https://github.com/Ha0Tang/GestureGAN)
 
 ## Contributions
 If you have any questions/comments/bug reports, feel free to open a github issue or pull a request or e-mail to the author Hao Tang ([hao.tang@unitn.it](hao.tang@unitn.it)).
