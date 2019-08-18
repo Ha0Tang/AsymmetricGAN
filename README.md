@@ -142,13 +142,26 @@ New models can be trained with the following commands.
 
 For NTU dataset:
 ```bash
-export CUDA_VISIBLE_DEVICES=2,3;
-python train.py --dataroot /home/Special/b_d208/TangHao/ntu --name ntu_AsymmetricGAN_twocycle_twosameG --model gesturegan_twocycle --which_model_netG resnet_9blocks --which_direction AtoB --dataset_mode aligned --norm instance --gpu_ids 0,1 --batchSize 4 --loadSize 286 --fineSize 256 --no_flip  --lambda_L1 800 --cyc_L1 0.1 --lambda_identity 0.01 --lambda_feat 1000 --display_id 0 --niter 10 --niter_decay 10;
-python test.py --dataroot /home/Special/b_d208/TangHao/ntu --name ntu_AsymmetricGAN_twocycle_twosameG --model gesturegan_twocycle --which_model_netG resnet_9blocks --which_direction AtoB --dataset_mode aligned --norm instance --gpu_ids 0 --batchSize 4 --loadSize 286 --fineSize 256 --no_flip
-
-export CUDA_VISIBLE_DEVICES=4,5;
-python train.py --dataroot /home/Special/b_d208/TangHao/ntu --name ntu_AsymmetricGAN_twocycle_twofiddG --model gesturegan_twocycle --which_model_netG resnet_9blocks --which_direction AtoB --dataset_mode aligned --norm instance --gpu_ids 0,1 --batchSize 4 --loadSize 286 --fineSize 256 --no_flip  --lambda_L1 800 --cyc_L1 0.1 --lambda_identity 0.01 --lambda_feat 1000 --display_id 0 --niter 10 --niter_decay 10;
-python test.py --dataroot /home/Special/b_d208/TangHao/ntu --name ntu_AsymmetricGAN_twocycle_twofiddG --model gesturegan_twocycle --which_model_netG resnet_9blocks --which_direction AtoB --dataset_mode aligned --norm instance --gpu_ids 0 --batchSize 4 --loadSize 286 --fineSize 256 --no_flip
+export CUDA_VISIBLE_DEVICES=3,4;
+python train.py --dataroot ./datasets/ntu \
+	--name ntu_gesturegan_twocycle \
+	--model gesturegan_twocycle \
+	--which_model_netG resnet_9blocks \
+	--which_direction AtoB \
+	--dataset_mode aligned \
+	--norm instance \
+	--gpu_ids 0,1 \
+	--batchSize 4 \
+	--loadSize 286 \
+	--fineSize 256 \
+	--no_flip \
+	--lambda_L1 800 \
+	--cyc_L1 0.1 \
+	--lambda_identity 0.01 \
+	--lambda_feat 1000 \
+	--display_id 0 \
+	--niter 10 \
+	--niter_decay 10
 ```
 
 For Senz3D dataset:
