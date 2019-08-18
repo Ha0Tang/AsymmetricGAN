@@ -4,9 +4,9 @@ from .base_model import BaseModel
 from . import networks
 import itertools
 
-class GestureGANTwoCycleModel(BaseModel):
+class AsymmetricGANModel(BaseModel):
     def name(self):
-        return 'GestureGANTwoCycleModel'
+        return 'AsymmetricGANModel'
 
     @staticmethod
     def modify_commandline_options(parser, is_train=True):
@@ -38,9 +38,9 @@ class GestureGANTwoCycleModel(BaseModel):
         else:  # during test time, only load G
             self.model_names = ['G1','G2']
         # load/define networks
-        self.netG1 = networks.define_G(6, 3, opt.ngf,
+        self.netG1 = networks.define_G(6, 3, opt.ngf_t,
                                       opt.which_model_netG, opt.norm, not opt.no_dropout, opt.init_type, opt.init_gain, self.gpu_ids)
-        self.netG2 = networks.define_G(6, 3, 4,
+        self.netG2 = networks.define_G(6, 3, opt.ngf_r,
                                       opt.which_model_netG, opt.norm, not opt.no_dropout, opt.init_type, opt.init_gain, self.gpu_ids)
         
         if self.isTrain:

@@ -5,16 +5,16 @@
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-blue.svg)]((https://github.com/Ha0Tang/GestureGAN/graphs/commit-activity))
 ![Contributing](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)
 ![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/gesturegan-for-hand-gesture-to-gesture/gesture-to-gesture-translation-on-ntu-hand)](https://paperswithcode.com/sota/gesture-to-gesture-translation-on-ntu-hand?p=gesturegan-for-hand-gesture-to-gesture)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/gesturegan-for-hand-gesture-to-gesture/gesture-to-gesture-translation-on-senz3d)](https://paperswithcode.com/sota/gesture-to-gesture-translation-on-senz3d?p=gesturegan-for-hand-gesture-to-gesture)
+<!-- [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/gesturegan-for-hand-gesture-to-gesture/gesture-to-gesture-translation-on-ntu-hand)](https://paperswithcode.com/sota/gesture-to-gesture-translation-on-ntu-hand?p=gesturegan-for-hand-gesture-to-gesture)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/gesturegan-for-hand-gesture-to-gesture/gesture-to-gesture-translation-on-senz3d)](https://paperswithcode.com/sota/gesture-to-gesture-translation-on-senz3d?p=gesturegan-for-hand-gesture-to-gesture) -->
 
-![GestureGAN demo](https://github.com/Ha0Tang/GestureGAN/blob/master/imgs/gesture_results.gif)
+<!-- ![GestureGAN demo](https://github.com/Ha0Tang/GestureGAN/blob/master/imgs/gesture_results.gif)
 GestureGAN for hand gesture-to-gesture tranlation task. Given an image and some novel hand skeletons, GestureGAN is able
 to generate the same person but with different hand gestures.
 
 ![GestureGAN demo](https://github.com/Ha0Tang/GestureGAN/blob/master/imgs/view_results.gif)
 GestureGAN for cross-view image tranlation task. Given an image and some novel semantic maps, GestureGAN is able
-to generate the same scene but with different viewpoints.
+to generate the same scene but with different viewpoints. -->
 
 # GestureGAN for Controllable Image-to-Image Translation
 
