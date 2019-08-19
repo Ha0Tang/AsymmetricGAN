@@ -134,8 +134,8 @@ For NTU dataset:
 ```bash
 export CUDA_VISIBLE_DEVICES=3,4;
 python train.py --dataroot ./datasets/ntu \
-	--name ntu_gesturegan_twocycle \
-	--model gesturegan_twocycle \
+	--name ntu_asymmetricgan \
+	--model asymmetricgan \
 	--which_model_netG resnet_9blocks \
 	--which_direction AtoB \
 	--dataset_mode aligned \
@@ -158,8 +158,8 @@ For Senz3D dataset:
 ```bash
 export CUDA_VISIBLE_DEVICES=5,7;
 python train.py --dataroot ./datasets/senz3d \
-	--name senz3d_gesturegan_twocycle \
-	--model gesturegan_twocycle \
+	--name senz3d_asymmetricgan \
+	--model asymmetricgan \
 	--which_model_netG resnet_9blocks \
 	--which_direction AtoB \
 	--dataset_mode aligned \
@@ -193,9 +193,9 @@ Testing is similar to testing pretrained models.
 
 For NTU dataset:
 ```bash
-python test.py --dataroot ./datasets/ntu \
-	--name ntu_gesturegan_twocycle \
-	--model gesturegan_twocycle \
+python test.py --dataroot [path_to_NTU_dataset] \
+	--name ntu_asymmetricgan \
+	--model asymetricgan \
 	--which_model_netG resnet_9blocks \
 	--which_direction AtoB \
 	--dataset_mode aligned \
@@ -209,9 +209,9 @@ python test.py --dataroot ./datasets/ntu \
 
 For Senz3D dataset:
 ```bash
-python test.py --dataroot ./datasets/senz3d \
-	--name senz3d_gesturegan_twocycle \
-	--model gesturegan_twocycle \
+python test.py --dataroot [path_to_Senz3D_dataset] \
+	--name senz3d_asymmetricgan \
+	--model asymetricgan \
 	--which_model_netG resnet_9blocks \
 	--which_direction AtoB \
 	--dataset_mode aligned \
