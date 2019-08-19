@@ -67,27 +67,11 @@ To reproduce the results reported in the paper, you would need two NVIDIA GeForc
 ## Dataset Preparation
 
 For hand gesture-to-gesture translation task, we use NTU Hand Digit and Creative Senz3D datasets.
-Both datasets must be downloaded beforehand. Please download them on the respective webpages. In addition, we put a few sample images in this [code repo](https://github.com/Ha0Tang/GestureGAN/tree/master/datasets/samples). Please cite their papers if you use the data. 
+Both datasets must be downloaded beforehand. Please download them on the respective webpages. In addition, follow [GestureGAN](https://github.com/Ha0Tang/GestureGAN) to prepare both datasets. Please cite their papers if you use the data. 
 
-**Preparing NTU Hand Digit Dataset**. The dataset can be downloaded in this [paper](https://rose.ntu.edu.sg/Publications/Documents/Action%20Recognition/Robust%20Part-Based%20Hand%20Gesture.pdf). After downloading it we adopt [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) to generate hand skeletons and use them as training and testing data in our experiments. Note that we filter out failure cases in hand gesture estimation for training and testing. Please cite their papers if you use this dataset. Train/Test splits for Creative Senz3D dataset can be downloaded from [here](https://github.com/Ha0Tang/GestureGAN/tree/master/datasets/ntu_split). Download images and the crossponding extracted hand skeletons of this dataset:
-```bash
-bash ./datasets/download_gesturegan_dataset.sh ntu_image_skeleton
-```
-Then run the following MATLAB script to generate training and testing data:
-```bash
-cd datasets/
-matlab -nodesktop -nosplash -r "prepare_ntu_data"
-```
+**Preparing NTU Hand Digit Dataset**. The dataset can be downloaded in this [paper](https://rose.ntu.edu.sg/Publications/Documents/Action%20Recognition/Robust%20Part-Based%20Hand%20Gesture.pdf). After downloading it we adopt [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) to generate hand skeletons and use them as training and testing data in our experiments. Note that we filter out failure cases in hand gesture estimation for training and testing. Please cite their papers if you use this dataset. Train/Test splits for Creative Senz3D dataset can be downloaded from [here](https://github.com/Ha0Tang/GestureGAN/tree/master/datasets/ntu_split).
 
-**Preparing Creative Senz3D Dataset**. The dataset can be downloaded [here](https://lttm.dei.unipd.it//downloads/gesture/#senz3d). After downloading it we adopt [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) to generate hand skeletons and use them as training data in our experiments. Note that we filter out failure cases in hand gesture estimation for training and testing. Please cite their papers if you use this dataset. Train/Test splits for Creative Senz3D dataset can be downloaded from [here](https://github.com/Ha0Tang/GestureGAN/tree/master/datasets/senz3d_split). Download images and the crossponding extracted hand skeletons of this dataset:
-```bash
-bash ./datasets/download_gesturegan_dataset.sh senz3d_image_skeleton
-```
-Then run the following MATLAB script to generate training and testing data:
-```bash
-cd datasets/
-matlab -nodesktop -nosplash -r "prepare_senz3d_data"
-```
+**Preparing Creative Senz3D Dataset**. The dataset can be downloaded [here](https://lttm.dei.unipd.it//downloads/gesture/#senz3d). After downloading it we adopt [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) to generate hand skeletons and use them as training data in our experiments. Note that we filter out failure cases in hand gesture estimation for training and testing. Please cite their papers if you use this dataset. Train/Test splits for Creative Senz3D dataset can be downloaded from [here](https://github.com/Ha0Tang/GestureGAN/tree/master/datasets/senz3d_split). 
 
 **Preparing Your Own Datasets**. Each training sample in the dataset will contain {Ix,Iy,Cx,Cy}, where Ix=image x, Iy=image y, Cx=Controllable structure of image x, and Cy=Controllable structure of image y.
 Of course, you can use AsymmetricGAN for your own datasets and tasks.
@@ -101,13 +85,13 @@ Once the dataset is ready. The result images can be generated using pretrained m
 ```
 bash ./scripts/download_asymmetricgan_model.sh ntu_asymmetricgan
 ```
-The pretrained model is saved at `./checkpoints/[type]_pretrained`. Check [here](https://github.com/Ha0Tang/GestureGAN/blob/master/scripts/download_gesturegan_model.sh) for all the available AsymmetricGAN models.
+The pretrained model is saved at `./checkpoints/[type]_pretrained`. Check [here](https://github.com/Ha0Tang/GestureGAN/blob/master/scripts/download_asymmetricgan_model.sh) for all the available AsymmetricGAN models.
 
 2. Generate images using the pretrained model.
 ```bash
 python test.py --dataroot [path_to_dataset] \
 	--name [type]_pretrained \
-	--model [gesturegan_model] \
+	--model [asymetricgan_model] \
 	--which_model_netG resnet_9blocks \
 	--which_direction AtoB \
 	--dataset_mode aligned \
@@ -119,9 +103,7 @@ python test.py --dataroot [path_to_dataset] \
 	--no_flip
 ```
 
-`[path_to_dataset]` is the path to the dataset. Dataset can be one of `ntu`, `senz3d`, `dayton_a2g`, `dayton_g2a` and `cvusa`. `[type]_pretrained` is the directory name of the checkpoint file downloaded in Step 1, which should be one of `ntu_gesturegan_twocycle_pretrained`, `senz3d_gesturegan_twocycle_pretrained`, `dayton_a2g_64_gesturegan_onecycle_pretrained`, `dayton_g2a_64_gesturegan_onecycle_pretrained`, `dayton_a2g_gesturegan_onecycle_pretrained`, `dayton_g2a_gesturegan_onecycle_pretrained` and `cvusa_gesturegan_onecycle_pretrained`. 
-`[gesturegan_model]` is the directory name of the model of GestureGAN, which should be one of `gesturegan_twocycle` or `gesturegan_onecycle`.
-If you are running on CPU mode, change `--gpu_ids 0` to `--gpu_ids -1`. For [`BS`, `LS`, `FS`], please see `Training` and `Testing` sections.
+`[path_to_dataset]` is the path to the dataset. Dataset can be one of `ntu` and `senz3d`. `[type]_pretrained` is the directory name of the checkpoint file downloaded in Step 1. `[asymetricgan_model]` is the directory name of the model of AsymmetricGAN. Moreover, if you are running on CPU mode, change `--gpu_ids 0` to `--gpu_ids -1`. For [`BS`, `LS`, `FS`], please see `Training` and `Testing` sections.
 
 Note that testing require large amount of disk space. If you don't have enough space, append `--saveDisk` on the command line.
     
@@ -183,7 +165,7 @@ python train.py --dataroot ./datasets/senz3d \
 	--niter_decay 10
 ```
 
-There are many options you can specify. Please use `python train.py --help`. The specified options are printed to the console. To specify the number of GPUs to utilize, use `export CUDA_VISIBLE_DEVICES=[GPU_ID]`. Note that train `gesturegan_onecycle` only needs one GPU, while train `gesturegan_twocycle` needs two GPUs.
+There are many options you can specify. Please use `python train.py --help`. The specified options are printed to the console. To specify the number of GPUs to utilize, use `export CUDA_VISIBLE_DEVICES=[GPU_ID]`.
 
 To view training results and loss plots on local computers, set `--display_id` to a non-zero value and run `python -m visdom.server` on a new terminal and click the URL [http://localhost:8097](http://localhost:8097/).
 On a remote server, replace `localhost` with your server's name, such as [http://server.trento.cs.edu:8097](http://server.trento.cs.edu:8097).
