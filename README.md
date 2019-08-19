@@ -66,7 +66,7 @@ To reproduce the results reported in the paper, you would need two NVIDIA GeForc
 
 ## Dataset Preparation
 
-For hand gesture-to-gesture translation tasks, we use NTU Hand Digit and Creative Senz3D datasets.
+For hand gesture-to-gesture translation task, we use NTU Hand Digit and Creative Senz3D datasets.
 For cross-view image translation task, we use Dayton and CVUSA datasets.
 These datasets must be downloaded beforehand. Please download them on the respective webpages. In addition, we put a few sample images in this [code repo](https://github.com/Ha0Tang/GestureGAN/tree/master/datasets/samples). Please cite their papers if you use the data. 
 
@@ -100,7 +100,7 @@ Once the dataset is ready. The result images can be generated using pretrained m
 1. You can download a pretrained model (e.g. ntu_asymmetricgan) with the following script:
 
 ```
-bash ./scripts/download_gesturegan_model.sh ntu_asymmetricgan
+bash ./scripts/download_asymmetricgan_model.sh ntu_asymmetricgan
 ```
 The pretrained model is saved at `./checkpoints/[type]_pretrained`. Check [here](https://github.com/Ha0Tang/GestureGAN/blob/master/scripts/download_gesturegan_model.sh) for all the available AsymmetricGAN models.
 
