@@ -253,6 +253,10 @@ We use several metrics to evaluate the quality of the generated images:
 - [PSNR](https://github.com/Ha0Tang/GestureGAN/blob/master/scripts/evaluation/compute_psnr.lua), need install `Lua` 
 - [Fréchet ResNet Distance (FRD)](https://github.com/Ha0Tang/GestureGAN/tree/master/scripts/evaluation/FRD), need install `MATLAB 2016+`
 
+## To Do List
+- [x] Upload supervised AsymmetricGAN code for hand gesture-to-gesture translation
+- [ ] Upload unsupervised AsymmetricGAN code for multi-domain image-to-image translation
+
 ## Citation
 If you use this code for your research, please cite our papers.
 ```
