@@ -24,9 +24,6 @@ to generate the same scene but with different viewpoints. -->
 ## AsymmetricGAN Framework for Hand Gesture-to-Gesture Translation
 ![SU_Framework](./imgs/AsymmetricGAN_supervised.jpg)
 
-## Comparison with State-of-the-Art Image-to-Image Transaltion Methods
-![Framework Comparison](./imgs/framework_comparison.jpg)
-
 ### [Conference paper](https://arxiv.org/abs/1901.04604) | [Project page (Conference paper)](http://disi.unitn.it/~hao.tang/project/G2GAN.html) | [Slides](http://disi.unitn.it/~hao.tang/uploads/slides/G2GAN_ACCV18.pptx) | [Poster](http://disi.unitn.it/~hao.tang/uploads/posters/G2GAN_ACCV18.pdf)
 
 Dual Generator Generative Adversarial Networks for Multi-Domain Image-to-Image Translation.<br>
@@ -88,6 +85,8 @@ bash ./scripts/download_asymmetricgan_model.sh ntu_asymmetricgan
 The pretrained model is saved at `./checkpoints/[type]_pretrained`. Check [here](https://github.com/Ha0Tang/GestureGAN/blob/master/scripts/download_asymmetricgan_model.sh) for all the available AsymmetricGAN models.
 
 2. Generate images using the pretrained model.
+
+For NTU Dataset:
 ```bash
 python test.py --dataroot [path_to_dataset] \
 	--name [type]_pretrained \
