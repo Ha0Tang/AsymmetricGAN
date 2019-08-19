@@ -96,6 +96,8 @@ python test.py --dataroot [path_to_NTU_dataset] \
 	--dataset_mode aligned \
 	--norm instance \
 	--gpu_ids 0 \
+	--ngf_t 64 \
+	--ngf_r 4 \
 	--batchSize 4 \
 	--loadSize 286 \
 	--fineSize 256 \
@@ -112,6 +114,8 @@ python test.py --dataroot [path_to_Senz3D_dataset] \
 	--dataset_mode aligned \
 	--norm instance \
 	--gpu_ids 0 \
+	--ngf_t 64 \
+	--ngf_r 4 \
 	--batchSize 4 \
 	--loadSize 286 \
 	--fineSize 256 \
@@ -141,6 +145,8 @@ python train.py --dataroot ./datasets/ntu \
 	--dataset_mode aligned \
 	--norm instance \
 	--gpu_ids 0,1 \
+	--ngf_t 64 \
+	--ngf_r 4 \
 	--batchSize 4 \
 	--loadSize 286 \
 	--fineSize 256 \
@@ -165,6 +171,8 @@ python train.py --dataroot ./datasets/senz3d \
 	--dataset_mode aligned \
 	--norm instance \
 	--gpu_ids 0,1 \
+	--ngf_t 64 \
+	--ngf_r 4 \
 	--batchSize 4 \
 	--loadSize 286 \
 	--fineSize 256 \
@@ -201,6 +209,8 @@ python test.py --dataroot [path_to_NTU_dataset] \
 	--dataset_mode aligned \
 	--norm instance \
 	--gpu_ids 0 \
+	--ngf_t 64 \
+	--ngf_r 4 \
 	--batchSize 4 \
 	--loadSize 286 \
 	--fineSize 256 \
@@ -217,6 +227,8 @@ python test.py --dataroot [path_to_Senz3D_dataset] \
 	--dataset_mode aligned \
 	--norm instance \
 	--gpu_ids 0 \
+	--ngf_t 64 \
+	--ngf_r 4 \
 	--batchSize 4 \
 	--loadSize 286 \
 	--fineSize 256 \
