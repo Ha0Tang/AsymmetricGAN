@@ -61,7 +61,7 @@ class Generator_xy(nn.Module):
         x = torch.cat([x, c], dim=1)
         return self.main(x)
 
-# the same as Generator_xy
+# Generation 3: the same as Generator_xy
 # class Generator_yx(nn.Module):
 #     """Generator network."""
 #     def __init__(self, conv_dim=64, c_dim=5, repeat_num=6):
@@ -104,6 +104,7 @@ class Generator_xy(nn.Module):
 #         x = torch.cat([x, c], dim=1)
 #         return self.main(x)
 
+# Generation 2
 class Generator_yx(nn.Module):
     """Generator network."""
     def __init__(self, conv_dim=64, c_dim=5, repeat_num=2):
@@ -148,7 +149,7 @@ class Generator_yx(nn.Module):
         x = torch.cat([x, c], dim=1)
         return self.main(x)
 
-
+# Generation 1
 # class Generator_yx(nn.Module):
 #     """Generator. CNN Architecture."""
 #     def __init__(self, conv_dim=64, c_dim=5, repeat_num=6):
