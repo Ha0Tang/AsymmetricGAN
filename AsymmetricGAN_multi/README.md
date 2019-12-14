@@ -43,7 +43,7 @@ To translate images using the pretrained model, run the evaluation script below.
 
 ```bash
 $ python main.py --mode test --dataset RaFD --image_size 256 --c_dim 8 \
-				 --rafd_image_dir data/RaFD/test \
+                 --rafd_image_dir data/RaFD/test \
                  --model_save_dir rafd_generator1_pretrained/models \
                  --result_dir rafd_generator1_pretrained/results
 ```
