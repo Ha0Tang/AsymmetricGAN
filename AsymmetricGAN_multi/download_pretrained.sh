@@ -1,6 +1,6 @@
 FILE=$1
 
-echo "Note: available models are rafd_generation1, rafd_generation2, rafd_generation3"
+echo "Note: available models are rafd_generator1, rafd_generator2, rafd_generator3"
 echo "Specified [$FILE]"
 
 URL=http://disi.unitn.it/~hao.tang/uploads/models/AsymmetricGAN/${FILE}_pretrained.tar.gz
