@@ -255,7 +255,7 @@ We use several metrics to evaluate the quality of the generated images:
 
 ## To Do List
 - [x] Upload supervised AsymmetricGAN code for hand gesture-to-gesture translation
-- [ ] Upload unsupervised AsymmetricGAN code for multi-domain image-to-image translation
+- [x] Upload unsupervised AsymmetricGAN code for multi-domain image-to-image translation: [code](./AsymmetricGAN_multi)
 
 ## Citation
 If you use this code for your research, please cite our papers.
