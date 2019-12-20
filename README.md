@@ -24,7 +24,7 @@ to generate the same scene but with different viewpoints. -->
 ## AsymmetricGAN Framework for Hand Gesture-to-Gesture Translation
 ![SU_Framework](./imgs/AsymmetricGAN_supervised.jpg)
 
-### [Conference paper](https://arxiv.org/abs/1901.04604) | [Project page (Conference paper)](http://disi.unitn.it/~hao.tang/project/AsymmetricGAN.html) | [Slides](http://disi.unitn.it/~hao.tang/uploads/slides/G2GAN_ACCV18.pptx) | [Poster](http://disi.unitn.it/~hao.tang/uploads/posters/G2GAN_ACCV18.pdf)
+### [Conference paper](https://arxiv.org/abs/1901.04604) | [Project page](http://disi.unitn.it/~hao.tang/project/AsymmetricGAN.html) | [Slides](http://disi.unitn.it/~hao.tang/uploads/slides/G2GAN_ACCV18.pptx) | [Poster](http://disi.unitn.it/~hao.tang/uploads/posters/G2GAN_ACCV18.pdf)
 
 Dual Generator Generative Adversarial Networks for Multi-Domain Image-to-Image Translation.<br>
 [Hao Tang](http://disi.unitn.it/~hao.tang/)<sup>1</sup>, [Dan Xu](http://www.robots.ox.ac.uk/~danxu/)<sup>2</sup>, [Wei Wang](https://weiwangtrento.github.io/)<sup>3</sup>, [Yan Yan](https://userweb.cs.txstate.edu/~y_y34/)<sup>4</sup> and [Nicu Sebe](http://disi.unitn.it/~sebe/)<sup>1</sup>. <br> 
