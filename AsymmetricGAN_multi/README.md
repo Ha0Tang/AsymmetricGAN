@@ -1,4 +1,4 @@
-![Results](./imgs/rafd_results.jpg)
+![Results](./jpg/rafd_results.jpg)
 
 ## Dependencies
 * [Python 3.5+](https://www.continuum.io/downloads)
