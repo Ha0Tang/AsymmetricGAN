@@ -263,7 +263,7 @@ If you use this code for your research, please cite our papers.
 @article{tang2019asymmetric,
   title={Asymmetric Generative Adversarial Networks for Image-to-Image Translation},
   author={Hao Tang and Dan Xu and Hong Liu and Nicu Sebe},
-  journal={arXiv preprint arXiv: 1912.06931},
+  journal={arXiv preprint arXiv:1912.06931},
   year={2019}
 }
 
